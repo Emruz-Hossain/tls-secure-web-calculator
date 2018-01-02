@@ -60,8 +60,8 @@ var runServerCmd = &cobra.Command{
 		serverCRT := args[1]
 		serverKey := args[2]
 
-		// read ca.crt
-		pem, err:= ioutil.ReadFile(caCRT)
+		// read CA cert
+		caCert, err:= ioutil.ReadFile(caCRT)
 
 		if err!=nil{
 			log.Fatalf("Failed to read ca.crt. Reason: %v.",err)
@@ -69,7 +69,7 @@ var runServerCmd = &cobra.Command{
 
 		// create ca cert pool
 		caCertPool := x509.NewCertPool()
-		ok:=caCertPool.AppendCertsFromPEM(pem)
+		ok:=caCertPool.AppendCertsFromPEM(caCert)
 
 		if !ok{
 			log.Fatalf("Can't append pem to caCertPool.")
