@@ -27,3 +27,5 @@ go build -o wc main.go
 ```
 ./wc runClient <ca.crt path> <client.crt path> <client.key path> <FirstOpearand> <SecondOperand>
 ```
+
+All certificates will be generated in  ```$HOMEDIR/.wccertificates/pki/```
